@@ -7,16 +7,16 @@ const authMiddleware = (req, res, next) =>{
       return res.status(401).json({message: "Access denied. No token provided"});
     }
 
-    //extract token(bearer <TOKEN>)
+    //extracting token(bearer <TOKEN>)
     const token = authHeader.split(" ")[1];
 
     if (!token) return res.status(401).json({message: "Invalid token format."});
 
-    //verify the token
+    //verifying the token
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded; //attach user info (userId) to req object
+    req.user = decoded; // this attachs user info (userId) to req object
 
-    next(); // proceed to the next middleware/controller
+    next(); // this proceeds to the next middleware/controller
   } catch(error) {
     res.status(403).json({message:"Invalid or expired token"});
   }

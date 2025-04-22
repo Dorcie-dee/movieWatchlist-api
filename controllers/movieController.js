@@ -1,5 +1,5 @@
-// import movie from "../models/movie.js";
 import { MovieModel } from "../models/movie.js";
+
 import { addMovieValidator } from "../validators/movie.js";
 
 
@@ -9,7 +9,7 @@ export const addMovie = async (req, res) => {
     const { error, value } = addMovieValidator.validate({
       ...req.body,
       userId, //attach userId automatically
-      image: req.file?.filename // ensure image is optional
+      image: req.file?.filename // ensures image is optional
     }, { abortEarly: false });
 
     if (error) {
@@ -18,7 +18,7 @@ export const addMovie = async (req, res) => {
     const result = await MovieModel.create(value)
     res.status(201).json(result);
   } catch (error) {
-    res.status(500).json({message: "Something went wrong"});
+    res.status(409).json({message: "Something went wrong"});
   }
 };
 
@@ -31,7 +31,7 @@ export const getMovies = async (req, res) => {
 
     res.json(movies);
   } catch (error) {
-    res.status(500).json({ message: "Something went wrong" });
+    res.status(409).json({ message: "Something went wrong" });
   }
 };
 
@@ -42,7 +42,7 @@ export const updateMovieStatus = async (req, res) => {
     const {id} = req.params;
     const {status} = req.body;
 
-    //ensure the provided status is valid
+    //ensures the provided status is valid
     if (!["watched", "not watched"].includes(status)) {
       return res.status(400).jso({message: "Invalid status value"});
     }
@@ -60,7 +60,7 @@ export const updateMovieStatus = async (req, res) => {
     res.json({ message: "Movie status updated", movie:updatedMovie });
   } catch (error) {
     console.error("Error updating movie status:", error);
-    res.status(500).json({ message: "Something went wrong" });
+    res.status(409).json({ message: "Something went wrong" });
   }
 };
 
@@ -71,6 +71,6 @@ export const deleteMovie = async (req, res) => {
     await MovieModel.findByIdAndDelete(req.params.id);
     res.json({ message: "Movie removed successfully" });
   } catch (error) {
-    res.status(500).json({ message: "Something went wrong" });
+    res.status(409).json({ message: "Something went wrong" });
   }
 };
