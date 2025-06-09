@@ -1,15 +1,15 @@
 movieWatchlist-api
 
-For easy reading, try accesing this using my postman documentation link: https://documenter.getpostman.com/view/42782764/2sB2x3otPZ
+For easy reading, try accesing this using my postman documentation link: https://documenter.getpostman.com/view/42782764/2sB2x3otPZ. This is accessible until I unpublish it
  
-Else, you can view my documentation here!
+Else, you can view same documentation here!
 
 
 
 
 Hello! and welcome to my movieWatchlist-api. I'll be guiding you on how to understand and use my api.
 
-Note that this was bulit with the below functionalities in mind and might not be as sophisticated as you'd like it to be. But i'd be happy if you have a look at it and leave a like or follow :)
+Note that this was built with the below functionalities in mind and might not be as sophisticated as you'd like it to be. But i'd be happy if you have a look at it and leave a like or follow :)
 
 FUNCTIONALITIES involve:
 Users can:
@@ -52,7 +52,7 @@ password (string): The password for the user's account. It should meet the secur
 Example Request Body
 JSON
 {
-  "email": "user@example.com",
+  "email": "user@heyya.com",
   "password": "yourpassword"
 }
 Expected Response
@@ -80,8 +80,8 @@ Body
 raw (json)
 json
 {
-  "email": "tired@example.com",
-  "password": "123456"
+  "email": "**@**.com",
+  "password": "*************"
 }
 
 POST
@@ -103,7 +103,7 @@ Example Request Body:
 
 JSON
 {
-  "email": "user@example.com",
+  "email": "user@heyya.com",
   "password": "yourpassword"
 }
 Response
@@ -128,8 +128,8 @@ Body
 raw (json)
 json
 {
-  "email": "tired@example.com",
-  "password": "123456"
+   "email": "**@**.com",
+  "password": "*************"
 }
 
 Movies
