@@ -182,33 +182,3 @@ export const deleteMovie = async (req, res) => {
 
 
 
-
-
-
-
-// export const updateMovieStatus = async (req, res) => {
-//   try {
-//     const { id } = req.params;
-//     const { status } = req.body;
-
-//     //ensures the provided status is valid
-//     if (!["watched", "not watched"].includes(status)) {
-//       return res.status(400).json({ message: "Invalid status value" });
-//     }
-
-//     //find and update the movie
-//     const updatedMovie = await MovieModel.findByIdAndUpdate(id,
-//       { title, status },
-//       { new: true } // ensures the response returns the updated movie
-//     );
-
-//     if (!updatedMovie) {
-//       return res.status(404).json({ message: "Movie not found" });
-//     }
-
-//     res.json({ message: "Movie status updated", movie: updatedMovie });
-//   } catch (error) {
-//     console.error("Error updating movie status:", error);
-//     res.status(409).json({ message: "Something went wrong" });
-//   }
-// // };
