@@ -42,7 +42,7 @@ HTTP Method
 POST
 
 Request URL
-http://localhost:6002/api/auth/register
+https://moviewatchlist-api.onrender.com/api/auth/register
 
 Request Parameters
 The request body should be in JSON format and must include the following parameters:
