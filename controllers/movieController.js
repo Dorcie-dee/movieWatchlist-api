@@ -83,11 +83,34 @@ export const updateMovieStatus = async (req, res) => {
 
 
 //remove a movie from the watchlist
+// export const deleteMovie = async (req, res) => {
+//   try {
+//     await MovieModel.findByIdAndDelete(req.params.id);
+//     res.json({ message: "Movie removed successfully" });
+//   } catch (error) {
+//     res.status(409).json({ message: "Something went wrong" });
+//   }
+// };
 export const deleteMovie = async (req, res) => {
   try {
-    await MovieModel.findByIdAndDelete(req.params.id);
+    const userId = req.user.userId; // from JWT middleware
+    const { id } = req.params;
+
+    const movie = await MovieModel.findById(id);
+
+    if (!movie) {
+      return res.status(404).json({ message: "Movie not found" });
+    }
+
+    if (movie.userId.toString() !== userId.toString()) {
+      return res.status(403).json({ message: "Unauthorized: You can only delete your own movies" });
+    }
+
+    await MovieModel.findByIdAndDelete(id);
+
     res.json({ message: "Movie removed successfully" });
   } catch (error) {
+    console.error("Delete error:", error);
     res.status(409).json({ message: "Something went wrong" });
   }
 };
