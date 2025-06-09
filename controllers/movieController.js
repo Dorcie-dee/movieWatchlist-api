@@ -49,7 +49,7 @@ export const updateMovieStatus = async (req, res) => {
   try {
     const { id } = req.params;
     const userId = req.user.userId; // from JWT middleware
-    const { status, title } = req.body;
+    const { status} = req.body;
     
     // Optional: Validate status only if provided
     if (status && !["watched", "not watched"].includes(status)) {
@@ -70,7 +70,6 @@ export const updateMovieStatus = async (req, res) => {
 
     // Update only the fields provided
     if (status) existingMovie.status = status;
-    if (title) existingMovie.title = title;
     
     await existingMovie.save();
     
