@@ -195,7 +195,7 @@ Body
 raw (json)
 json
 {
-  "title": "Black CLover",
+  "title": "Blacklist",
   "status": "not watched"
   }
 GET
@@ -302,47 +302,6 @@ Ensure that the movie ID provided in the request is valid and corresponds to an 
 Deleting a movie is irreversible; once deleted, the movie cannot be recovered.
 ﻿
 
-Authorization
-Bearer Token
-Token
-<token>
-POST
-auth/register
-http://localhost:6002/api/auth/register
-﻿
 
-Authorization
-Bearer Token
-Token
-<token>
-Request Headers
-Content-Type
-application/json
-Body
-raw (json)
-json
-{
-  "email": "tired65@example.com",
-  "password": "123456"
-}
 
-POST
-auth/login
-http://localhost:6002/api/auth/login
-﻿
-
-Body
-raw (json)
-json
-{
-  "email": "tired@example.com",
-  "password": "123456"
-}
-JUMP TO
-Introduction
-Authentication
-Movies
-POST
-auth/register
-POST
-auth/login
+I hope you had fun perusing this documentation. Do check out my other projects. See you in the next repo ^_^
