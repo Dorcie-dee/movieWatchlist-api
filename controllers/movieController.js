@@ -83,14 +83,7 @@ export const updateMovieStatus = async (req, res) => {
 
 
 //remove a movie from the watchlist
-// export const deleteMovie = async (req, res) => {
-//   try {
-//     await MovieModel.findByIdAndDelete(req.params.id);
-//     res.json({ message: "Movie removed successfully" });
-//   } catch (error) {
-//     res.status(409).json({ message: "Something went wrong" });
-//   }
-// };
+
 export const deleteMovie = async (req, res) => {
   try {
     const userId = req.user.userId; // from JWT middleware
